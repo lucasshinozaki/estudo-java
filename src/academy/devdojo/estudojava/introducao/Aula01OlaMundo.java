@@ -3,7 +3,7 @@ package academy.devdojo.estudojava.introducao;
 /**
  * Isso é um comentário <b>javadoc</b>
  */
-public class OlaMundo {
+public class Aula01OlaMundo {
     // Isso é um comentário de uma linha
     /*
         Isso é um comentário
