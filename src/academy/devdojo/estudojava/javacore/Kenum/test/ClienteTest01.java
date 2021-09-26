@@ -1,7 +1,7 @@
 package academy.devdojo.estudojava.javacore.Kenum.test;
 
 import academy.devdojo.estudojava.javacore.Kenum.dominio.Cliente;
-import academy.devdojo.estudojava.javacore.Kenum.dominio.Cliente.TipoPagamento;
+import academy.devdojo.estudojava.javacore.Kenum.dominio.TipoPagamento;
 import academy.devdojo.estudojava.javacore.Kenum.dominio.TipoCliente;
 
 public class ClienteTest01 {
@@ -11,7 +11,8 @@ public class ClienteTest01 {
 
         System.out.println(cliente1);
         System.out.println(cliente2);
-
+        System.out.println(TipoPagamento.DEBITO.calcularDesconto(100));
+        System.out.println(TipoPagamento.CREDITO.calcularDesconto(100));
 
     }
 }
