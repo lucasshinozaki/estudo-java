@@ -1,7 +1,7 @@
 package academy.devdojo.estudojava.javacore.Minterfaces.dominio;
 
 public class DatabaseLoader implements DataLoader, DataRemover{
-
+    // private -> default -> protected -> public
     @Override
     public void load() {
         System.out.println("Carregando dados do banco de dados");
@@ -15,5 +15,9 @@ public class DatabaseLoader implements DataLoader, DataRemover{
     @Override
     public void checkPermission() {
         System.out.println("Chegando permissões no banco de dados");
+    }
+
+    public static void retrieveMacDataSize(){
+        System.out.println("Dentro da retrieveMacDataSize na classe DataLoader");
     }
 }
