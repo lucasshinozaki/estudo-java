@@ -1,7 +1,5 @@
 package academy.devdojo.estudojava.javacore.Rdatas.test;
 
-import academy.devdojo.estudojava.javacore.Gassociacao.dominio.Local;
-
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.temporal.ChronoField;
