@@ -3,14 +3,19 @@ package academy.devdojo.estudojava.javacore.Uragex.test;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PatternMatcherTest01 {
+public class PatternMatcherTest02 {
     public static void main(String[] args) {
-        //Utiliza simbolos que encontra padrões no texto
-        //Serve para validação. Ex:email válido
+        //Meta caracteres
+        // \d = Todos os digitos
+        // \D = Tudo o que não for digito
+        // \s = Espaços em branco \t \n \f \r
+        // \S = Todos os caracters excluindo os brancos
+        // \w = a-z A-Z, digitos, _
+        // \W = Tudo o que não for incluido no \w
 
-        String regex = "aba";
+        String regex = "\\W";
         String texto2 = "abaaba";
-        String texto = "abababa";
+        String texto = "fa @sdf_2a4";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(texto);
 
