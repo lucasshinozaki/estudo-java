@@ -8,8 +8,9 @@ public class FileReaderTest01 {
     public static void main(String[] args) {
         File file = new File("file.txt");
         try (FileReader fr = new FileReader(file)){
-//            char[] in = new char[30]; // lendo o arquivo até uma certa posição
-//            fr.read(in);
+//            char[] in = new char[1000]; // lendo o arquivo até uma certa posição
+//            int size = fr.read(in);
+//            System.out.println(size); // Imprimido quantidade lida
 //            for(char c : in){
 //                System.out.print(c);
 //            }
