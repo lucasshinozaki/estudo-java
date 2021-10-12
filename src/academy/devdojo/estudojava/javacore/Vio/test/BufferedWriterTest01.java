@@ -9,12 +9,12 @@ public class BufferedWriterTest01 {
     public static void main(String[] args) {
         File file = new File("file.txt");
         try (FileWriter fw = new FileWriter(file, true);
-            BufferedWriter br = new BufferedWriter(fw)) {
-            br.write("Escrevendo dentro do arquivo");
-            br.newLine();
-            br.write("Continuando escrevendo na prox linha");
-            br.newLine();
-            br.flush(); //já chama o fw.close()
+            BufferedWriter bw = new BufferedWriter(fw)) {
+            bw.write("Escrevendo dentro do arquivo");
+            bw.newLine();
+            bw.write("Continuando escrevendo na prox linha");
+            bw.newLine();
+            bw.flush(); //já chama o fw.close()
         } catch (IOException e) {
             e.printStackTrace();
         }
