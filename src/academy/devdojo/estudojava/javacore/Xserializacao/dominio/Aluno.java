@@ -23,7 +23,7 @@ public class Aluno implements Serializable {
         this.password = password;
     }
 
-   // @Serial
+   // @Serial - a partir da versão 14 do JAVA
     private void writeObject(ObjectOutputStream oos){
         try{
             oos.defaultWriteObject();
