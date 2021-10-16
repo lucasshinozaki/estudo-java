@@ -32,6 +32,6 @@ public class ListaArrayConversaoTest01 {
 
         System.out.println("--------------------------");
         List<String> strings = Arrays.asList("1", "2");
-        List.of("1", "2");
+//        List.of("1", "2");
     }
 }
