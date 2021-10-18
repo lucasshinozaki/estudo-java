@@ -7,6 +7,7 @@ public class MapTest01 {
     public static void main(String[] args) {
         //Não pode ter chaves duplicadas
         Map<String, String> map = new HashMap<>();
+//        Map<String, String> map2 = new LinkedHashMap<>(); //Mantem na ordem de entrada
         map.put("teklado", "teclado");
         map.put("mouze", "mouse");
         map.put("vc", "você");
