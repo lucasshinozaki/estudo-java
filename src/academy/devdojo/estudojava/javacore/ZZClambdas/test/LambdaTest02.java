@@ -7,8 +7,8 @@ import java.util.function.Function;
 public class LambdaTest02 {
     public static void main(String[] args) {
         List<String> strings = List.of("Natsu", "Allucard");
-        List<Integer> integers = map(strings, s -> s.length());
-        List<String> upper = map(strings, s -> s.toUpperCase());
+        List<Integer> integers = map(strings, String::length);
+        List<String> upper = map(strings, String::toUpperCase);
         System.out.println(integers);
         System.out.println(upper);
     }
