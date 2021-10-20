@@ -5,7 +5,6 @@ import academy.devdojo.estudojava.javacore.ZZClambdas.dominio.Anime;
 import academy.devdojo.estudojava.javacore.ZZClambdas.service.AnimeComparators;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class MethodReferenceTest01 {
