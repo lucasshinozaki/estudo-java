@@ -1,6 +1,5 @@
-Escrevendo dentro do arquivo
-Continuando escrevendo na prox linha
-Escrevendo dentro do arquivo
-Continuando escrevendo na prox linha
-Escrevendo dentro do arquivo
-Continuando escrevendo na prox linha
+Java é legal
+Java vai me deixar rico
+Python é ....
+Php então ....
+oh boy
