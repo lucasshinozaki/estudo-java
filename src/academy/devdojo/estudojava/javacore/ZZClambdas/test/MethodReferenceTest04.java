@@ -17,7 +17,8 @@ public class MethodReferenceTest04 {
         List<Anime> animeList = new ArrayList<>(List.of(
                 new Anime("Bersek", 43),
                 new Anime("One piece", 900),
-                new Anime("Naruto", 500)));
+                new Anime("Naruto", 500))
+        );
         animeList.sort(animeComparators::compareByEpisodesNonStatic);
         System.out.println(animeList);
 
