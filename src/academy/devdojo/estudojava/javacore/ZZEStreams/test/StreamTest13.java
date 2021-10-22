@@ -7,9 +7,11 @@ import academy.devdojo.estudojava.javacore.ZZEStreams.dominio.Promotion;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.function.Function;
 
-import static academy.devdojo.estudojava.javacore.ZZEStreams.dominio.Promotion.*;
+import static academy.devdojo.estudojava.javacore.ZZEStreams.dominio.Promotion.NORMAL_PRICE;
+import static academy.devdojo.estudojava.javacore.ZZEStreams.dominio.Promotion.UNDER_PROMOTION;
+import static java.util.stream.Collectors.groupingBy;
 
 public class StreamTest13 {
     private static List<LightNovel> lightNovels = new ArrayList<>(List.of(
@@ -26,7 +28,7 @@ public class StreamTest13 {
     public static void main(String[] args) {
         Map<Promotion, List<LightNovel>> collect = lightNovels
                 .stream()
-                .collect(Collectors.groupingBy(ln -> ln.getPrice() < 6 ? UNDER_PROMOTION : NORMAL_PRICE
+                .collect(groupingBy(getLightNovelPromotionFunction()
                 ));
         System.out.println(collect);
 
@@ -34,9 +36,13 @@ public class StreamTest13 {
 
         Map<Category, Map<Promotion, List<LightNovel>>> collect1 = lightNovels
                 .stream()
-                .collect(Collectors.groupingBy(LightNovel::getCategory,
-                        Collectors.groupingBy(ln -> ln.getPrice() < 6 ? UNDER_PROMOTION : NORMAL_PRICE
+                .collect(groupingBy(LightNovel::getCategory,
+                        groupingBy(getLightNovelPromotionFunction()
                         )));
         System.out.println(collect1);
+    }
+
+    private static Function<LightNovel, Promotion> getLightNovelPromotionFunction() {
+        return ln -> ln.getPrice() < 6 ? UNDER_PROMOTION : NORMAL_PRICE;
     }
 }
