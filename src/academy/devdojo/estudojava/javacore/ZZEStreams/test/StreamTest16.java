@@ -58,4 +58,24 @@ public class StreamTest16 {
         long end = System.currentTimeMillis();
         System.out.println(result + " " + (end - init) + "ms");
     }
+
+    // Cuidado com a performace
+    // Benchmark
+    // Unboxing | boxing
+    // Não fazer com parallel (limit, findFirst) Bom com parallel findAny
+    // Custo total da computação N, P
+    // Quantidade de dados, se for muito pequeno não vale a pena
+    // Tipos de coleções, dar uma pesquisada antes de usar
+    // Tamanho do stream (tamanho já definido é melhor para se usar)
+    // Processamento merge
+    //    if(tarefa for pequena e não pode ser dividida){
+    //        faz sequencialmente
+    //    else{
+    //        divide em duas tarefas
+    //        chama o metodo recursivamente
+    //        espea todas as tarefas serem completadas
+    //        Combinas o resultado
+    //    }
+    //  }
+
 }
