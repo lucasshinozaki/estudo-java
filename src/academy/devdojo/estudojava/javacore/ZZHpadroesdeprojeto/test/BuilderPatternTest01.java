@@ -5,7 +5,8 @@ import academy.devdojo.estudojava.javacore.ZZHpadroesdeprojeto.dominio.Person;
 //personBuilder.img
 public class BuilderPatternTest01 {
     public static void main(String[] args) {
-        Person build = new Person.PersonBuilder()
+        Person build = Person.PersonBuilder
+                .builder()
                 .firstName("Lucas")
                 .lastName("Shinozaki")
                 .username("Lucas_Shinozaki")
