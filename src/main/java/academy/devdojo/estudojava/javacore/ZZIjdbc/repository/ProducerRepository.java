@@ -56,16 +56,39 @@ public class ProducerRepository {
     // ResultSet.png
     public static List<Producer> findAll() {
         log.info("Finding all Producers");
-        String sql = "SELECT id, name FROM anime_store.producer;";
+        return findByName("");
+//        String sql = "SELECT id, name FROM anime_store.producer;";
+//        List<Producer> producers = new ArrayList<>();
+//        try (Connection conn = ConnectionFactory.getConnection();
+//             Statement stmt = conn.createStatement();
+//             ResultSet rs = stmt.executeQuery(sql)) {
+//            while (rs.next()) {
+////                int id = rs.getInt("id");
+////                String name = rs.getString("name");
+////                Producer producer = Producer.builder().id(id).name(name).build();
+////                producers.add(producer);
+//                Producer producer = Producer
+//                        .builder()
+//                        .id(rs.getInt("id"))
+//                        .name(rs.getString("name"))
+//                        .build();
+//                producers.add(producer);
+//            }
+//        } catch (SQLException e) {
+//            log.error("Erro while trying to find all producers", e);
+//        }
+//        return producers;
+    }
+
+    public static List<Producer> findByName(String name) {
+        log.info("Finding Producers by name");
+        String sql = "SELECT * FROM anime_store.producer where name like '%%%s%%';"
+                .formatted(name);
         List<Producer> producers = new ArrayList<>();
         try (Connection conn = ConnectionFactory.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)){
-            while(rs.next()){
-//                int id = rs.getInt("id");
-//                String name = rs.getString("name");
-//                Producer producer = Producer.builder().id(id).name(name).build();
-//                producers.add(producer);
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
                 Producer producer = Producer
                         .builder()
                         .id(rs.getInt("id"))
@@ -73,8 +96,8 @@ public class ProducerRepository {
                         .build();
                 producers.add(producer);
             }
-        } catch(SQLException e){
-            log.error("Erro while trying to find all producers",e);
+        } catch (SQLException e) {
+            log.error("Erro while trying to find all producers", e);
         }
         return producers;
     }
