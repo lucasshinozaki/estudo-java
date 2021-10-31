@@ -33,6 +33,10 @@ public class ProducerService {
         ProducerRepository.showProducerMetaData();
     }
 
+    public static void sowDriverMataData(){
+        ProducerRepository.sowDriverMataData();
+    }
+
     private static void requireValidId(Integer id){
         if (id == null || id <= 0){
             throw new IllegalArgumentException("Invalid value for id");
