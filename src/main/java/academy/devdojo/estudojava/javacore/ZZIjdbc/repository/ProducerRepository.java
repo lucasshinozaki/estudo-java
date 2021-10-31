@@ -5,8 +5,11 @@ import academy.devdojo.estudojava.javacore.ZZIjdbc.dominio.Producer;
 import lombok.extern.log4j.Log4j2;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Log4j2
@@ -30,12 +33,13 @@ public class ProducerRepository {
         try (Connection conn = ConnectionFactory.getConnection();
              Statement stmt = conn.createStatement()) {
             int rowsAffected = stmt.executeUpdate(sql);
-            log.info("Deleted producer '{}' in database, rows affected '{}' ",id, rowsAffected);
+            log.info("Deleted producer '{}' in database, rows affected '{}' ", id, rowsAffected);
         } catch (SQLException e) {
             log.error("Error while trying to delete producer '{}'", id, e);
             e.printStackTrace();
         }
     }
+
     public static void update(Producer producer) {
         String sql = " UPDATE `anime_store`.`producer` SET `name` = '%s' WHERE (`id` = '%d');"
                 .formatted(producer.getName(), producer.getId());
@@ -47,5 +51,31 @@ public class ProducerRepository {
             log.error("Error while trying to update producer '{}'", producer.getId(), e);
             e.printStackTrace();
         }
+    }
+
+    // ResultSet.png
+    public static List<Producer> findAll() {
+        log.info("Finding all Producers");
+        String sql = "SELECT id, name FROM anime_store.producer;";
+        List<Producer> producers = new ArrayList<>();
+        try (Connection conn = ConnectionFactory.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+            while(rs.next()){
+//                int id = rs.getInt("id");
+//                String name = rs.getString("name");
+//                Producer producer = Producer.builder().id(id).name(name).build();
+//                producers.add(producer);
+                Producer producer = Producer
+                        .builder()
+                        .id(rs.getInt("id"))
+                        .name(rs.getString("name"))
+                        .build();
+                producers.add(producer);
+            }
+        } catch(SQLException e){
+            log.error("Erro while trying to find all producers",e);
+        }
+        return producers;
     }
 }
